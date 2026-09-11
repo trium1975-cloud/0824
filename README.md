@@ -1,47 +1,5 @@
 # 💄 Sephora E-Commerce Pricing Strategy & AI Analytics Service
-## 📑 Table of Contents
-1. [Project Overview & System Architecture](#1-project-overview)
-2. [Data Engineering & Preprocessing Pipeline](#2-data-engineering)
-3. [Deep-Dive Exploratory Data Analysis (EDA)](#3-deep-dive-eda)
-4. [Statistical Hypothesis Testing](#4-statistical-testing)
-5. [Predictive Machine Learning Modeling](#5-ml-modeling)
-6. [Interactive Gradio Web Service Interface](#6-gradio-interface)
-7. [Data-Driven Business Strategies](#7-business-strategies)
-8. [Engineering Retrospective & Troubleshooting](#8-troubleshooting)
 
----
-
-<a id="1-project-overview"></a>
-## 1. Project Overview & System Architecture
-(기존 1번 내용 유지)
-
-<a id="2-data-engineering"></a>
-## 2. Data Engineering & Preprocessing Pipeline
-(기존 2번 내용 유지)
-
-<a id="3-deep-dive-eda"></a>
-## 3. Deep-Dive Exploratory Data Analysis (EDA)
-(기존 3번 내용 유지)
-
-<a id="4-statistical-testing"></a>
-## 4. Statistical Hypothesis Testing (One-way ANOVA)
-(기존 4번 내용 유지)
-
-<a id="5-ml-modeling"></a>
-## 5. Predictive Machine Learning Modeling
-(기존 5번 내용 유지)
-
-<a id="6-gradio-interface"></a>
-## 6. Interactive Gradio Web Service Interface
-(기존 6번 내용 유지)
-
-<a id="7-business-strategies"></a>
-## 7. Data-Driven Business Strategies
-(기존 7번 내용 유지)
-
-<a id="8-troubleshooting"></a>
-## 8. Engineering Retrospective & Troubleshooting
-(기존 8번 내용 유지)
 > **세포라(Sephora) 이커머스 데이터를 활용한 가격 티어별 고객 만족도 통계 검정, 바이럴 반응 예측 머신러닝 파이프라인 및 인터랙티브 웹 서비스 프로토타입**
 
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
@@ -54,23 +12,24 @@
 ---
 
 ## 📑 Table of Contents
-1. [Project Overview & System Architecture](#1-project-overview--system-architecture)
-2. [Data Engineering & Preprocessing Pipeline](#2-data-engineering--preprocessing-pipeline)
-3. [Deep-Dive Exploratory Data Analysis (EDA)](#3-deep-dive-exploratory-data-analysis-eda)
-4. [Statistical Hypothesis Testing (One-way ANOVA)](#4-statistical-hypothesis-testing-one-way-anova)
-5. [Predictive Machine Learning Modeling](#5-predictive-machine-learning-modeling)
-6. [Interactive Gradio Web Service Interface](#6-interactive-gradio-web-service-interface)
-7. [Data-Driven Business Strategies](#7-data-driven-business-strategies)
-8. [Engineering Retrospective & Troubleshooting](#8-engineering-retrospective--troubleshooting)
+1. [Project Overview & System Architecture](#sec-1)
+2. [Data Engineering & Preprocessing Pipeline](#sec-2)
+3. [Deep-Dive Exploratory Data Analysis (EDA)](#sec-3)
+4. [Statistical Hypothesis Testing (One-way ANOVA)](#sec-4)
+5. [Predictive Machine Learning Modeling](#sec-5)
+6. [Interactive Gradio Web Service Interface](#sec-6)
+7. [Data-Driven Business Strategies](#sec-7)
+8. [Engineering Retrospective & Troubleshooting](#sec-8)
 
 ---
 
+<a id="sec-1"></a>
 ## 1. Project Overview & System Architecture
 
 ### 1.1 비즈니스 문제 정의 (Business Problem)
 이커머스 뷰티 플랫폼에서 **"고가 프리미엄 제품일수록 고객 만족도(평점)가 유의미하게 더 높은가?"**는 MD 소싱과 프로모션 예산 배분의 핵심 의사결정 기준입니다.
-* **가설 1**: 가격이 높을수록 브랜드 충성도와 원료 품질에 의해 고객 만족도(Rating)가 선형적으로 증가할 것이다.
-* **가설 2**: 플랫폼 내 등록 상품 수(SKU)가 많은 카테고리가 고객의 바이럴 반응(Love/위시리스트 수)에서도 동일하게 높은 점유율을 가질 것이다.
+* **가설 1**: 제품 가격이 높을수록 브랜드 충성도와 원료 품질에 의해 고객 평점(Rating)이 선형적으로 비례하여 상승할 것이다.
+* **가설 2**: 플랫폼 내 등록 상품 수(SKU)가 많은 메이저 카테고리가 실제 고객의 바이럴 반응(Love/위시리스트 수)에서도 동일하게 높은 점유율을 차지할 것이다.
 
 ### 1.2 엔드투엔드 아키텍처 다이어그램 (Pipeline)
 
@@ -83,4 +42,3 @@ flowchart TD
     C --> F[Machine Learning: 하트수 및 평점 예측 Random Forest/XGBoost]
     E & F --> G[Interactive Web App: Gradio 기반 실시간 MD 시뮬레이터]
     G --> H[Actionable Business Strategy: 소싱 Sweet Spot 도출]
-
