@@ -1,36 +1,44 @@
-# 💄 Sephora E-Commerce Pricing & Customer Satisfaction Analytics
+# 💄 Sephora E-Commerce Pricing Strategy & AI Analytics Service
 
-> **세포라 웹사이트 데이터를 활용한 가격 티어별 고객 만족도 분석 및 One-way ANOVA 통계 가설 검정**
+> **세포라(Sephora) 이커머스 데이터를 활용한 가격 티어별 고객 만족도 통계 검정, 바이럴 반응 예측 머신러닝 파이프라인 및 인터랙티브 웹 서비스 프로토타입**
 
-[![Python](https://img.shields.io/badge/Python-3.10+-yellow?style=for-the-badge&logo=python)](https://www.python.org/)
-[![Colab](https://img.shields.io/badge/Google%20Colab-Notebook-orange?style=for-the-badge&logo=googlecolab)](./sephora_data_analysis.ipynb)
-
----
-
-## 📌 1. Project Overview
-* **분석 배경**: 이커머스 환경에서 제품 가격이 높을수록 고객 평점이 비례하여 상승하는지 데이터로 검증하고 최적의 가격 세그먼트 도출
-* **데이터 규모**: 총 9,168건 중 미평가 신제품(평점 0.0 노이즈) 398건을 정제한 **8,770건의 유효 데이터**
-* **핵심 방법론**: 4단계 가격 티어링(저가/중저가/중고가/럭셔리), 일원배치 분산분석(One-way ANOVA)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Pandas](https://img.shields.io/badge/Pandas-2.0+-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![SciPy](https://img.shields.io/badge/SciPy-Statistics-8CAAE6?style=for-the-badge&logo=scipy&logoColor=white)](https://scipy.org/)
+[![Scikit--Learn](https://img.shields.io/badge/Scikit--Learn-ML%20Modeling-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![Gradio](https://img.shields.io/badge/Gradio-Web%20Service-FF7C00?style=for-the-badge&logo=gradio&logoColor=white)](https://gradio.app/)
+[![Google Colab](https://img.shields.io/badge/Google%20Colab-Notebook-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white)](./sephora_data_analysis.ipynb)
 
 ---
 
-## 📊 2. Statistical Evidence & Visualizations
-
-![Sephora Analysis Charts](./sephora_analysis_charts.png)
-
-### 🔍 핵심 통계 검정 결과 (ANOVA)
-* **검정 통계량**: $F\text{-statistic} = 42.95$
-* **유의확률 ($p$-value)**: $1.5262 \times 10^{-27}$ ($p < 0.001$)
-* **통계적 결론**: 가격 구간에 따른 고객 평점 차이는 우연이 아니며, 통계적으로 매우 유의미한 차이가 존재함.
-
----
-
-## 💡 3. Key Business Insights
-* **가성비 스윗스팟 발견**: 럭셔리($100+) 티어 외에도 $26~$50 중저가 구간에서 매우 견고한 평점 방어율 관측
-* **관심도(Love) 비대칭성**: 등록 상품 수(SKU)가 많은 기초 제품군보다 색조/향수 등 고관여 카테고리에서 평균 고객 관심도(하트 수)가 집중됨
+## 📑 Table of Contents
+1. [Project Overview & System Architecture](#1-project-overview--system-architecture)
+2. [Data Engineering & Preprocessing Pipeline](#2-data-engineering--preprocessing-pipeline)
+3. [Deep-Dive Exploratory Data Analysis (EDA)](#3-deep-dive-exploratory-data-analysis-eda)
+4. [Statistical Hypothesis Testing (One-way ANOVA)](#4-statistical-hypothesis-testing-one-way-anova)
+5. [Predictive Machine Learning Modeling](#5-predictive-machine-learning-modeling)
+6. [Interactive Gradio Web Service Interface](#6-interactive-gradio-web-service-interface)
+7. [Data-Driven Business Strategies](#7-data-driven-business-strategies)
+8. [Engineering Retrospective & Troubleshooting](#8-engineering-retrospective--troubleshooting)
 
 ---
 
-## 🚀 4. Actionable Strategies
-1. **MD 소싱 전략**: 고객 불만 리스크를 최소화하면서 객단가를 방어할 수 있는 $26~$50 인디 뷰티 브랜드 라인업 확대
-2. **리뷰 프로모션**: 관심도(Love)는 높으나 리뷰 수가 저조한 잠재 인기 상품군 대상 첫 리뷰 포인트 프로모션 집중 집행
+## 1. Project Overview & System Architecture
+
+### 1.1 비즈니스 문제 정의 (Business Problem)
+이커머스 뷰티 플랫폼에서 **"고가 프리미엄 제품일수록 고객 만족도(평점)가 유의미하게 더 높은가?"**는 MD 소싱과 프로모션 예산 배분의 핵심 의사결정 기준입니다.
+* **가설 1**: 가격이 높을수록 브랜드 충성도와 원료 품질에 의해 고객 만족도(Rating)가 선형적으로 증가할 것이다.
+* **가설 2**: 플랫폼 내 등록 상품 수(SKU)가 많은 카테고리가 고객의 바이럴 반응(Love/위시리스트 수)에서도 동일하게 높은 점유율을 가질 것이다.
+
+### 1.2 엔드투엔드 아키텍처 다이어그램 (Pipeline)
+
+```mermaid
+flowchart TD
+    A[Sephora Raw Dataset: 9,168건] --> B[Data Cleansing: 0점 노이즈 398건 제거]
+    B --> C[Feature Engineering: 4-Tier 가격 구간화]
+    C --> D[EDA: 카테고리별 상관관계 및 바이럴 분석]
+    C --> E[Statistical Testing: One-way ANOVA F=42.95, p<0.001]
+    C --> F[Machine Learning: 하트수 및 평점 예측 Random Forest/XGBoost]
+    E & F --> G[Interactive Web App: Gradio 기반 실시간 MD 시뮬레이터]
+    G --> H[Actionable Business Strategy: 소싱 Sweet Spot 도출]
+
