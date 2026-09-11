@@ -1,5 +1,47 @@
 # 💄 Sephora E-Commerce Pricing Strategy & AI Analytics Service
+## 📑 Table of Contents
+1. [Project Overview & System Architecture](#1-project-overview)
+2. [Data Engineering & Preprocessing Pipeline](#2-data-engineering)
+3. [Deep-Dive Exploratory Data Analysis (EDA)](#3-deep-dive-eda)
+4. [Statistical Hypothesis Testing](#4-statistical-testing)
+5. [Predictive Machine Learning Modeling](#5-ml-modeling)
+6. [Interactive Gradio Web Service Interface](#6-gradio-interface)
+7. [Data-Driven Business Strategies](#7-business-strategies)
+8. [Engineering Retrospective & Troubleshooting](#8-troubleshooting)
 
+---
+
+<a id="1-project-overview"></a>
+## 1. Project Overview & System Architecture
+(기존 1번 내용 유지)
+
+<a id="2-data-engineering"></a>
+## 2. Data Engineering & Preprocessing Pipeline
+(기존 2번 내용 유지)
+
+<a id="3-deep-dive-eda"></a>
+## 3. Deep-Dive Exploratory Data Analysis (EDA)
+(기존 3번 내용 유지)
+
+<a id="4-statistical-testing"></a>
+## 4. Statistical Hypothesis Testing (One-way ANOVA)
+(기존 4번 내용 유지)
+
+<a id="5-ml-modeling"></a>
+## 5. Predictive Machine Learning Modeling
+(기존 5번 내용 유지)
+
+<a id="6-gradio-interface"></a>
+## 6. Interactive Gradio Web Service Interface
+(기존 6번 내용 유지)
+
+<a id="7-business-strategies"></a>
+## 7. Data-Driven Business Strategies
+(기존 7번 내용 유지)
+
+<a id="8-troubleshooting"></a>
+## 8. Engineering Retrospective & Troubleshooting
+(기존 8번 내용 유지)
 > **세포라(Sephora) 이커머스 데이터를 활용한 가격 티어별 고객 만족도 통계 검정, 바이럴 반응 예측 머신러닝 파이프라인 및 인터랙티브 웹 서비스 프로토타입**
 
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
