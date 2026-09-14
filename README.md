@@ -12,33 +12,34 @@
 ---
 
 ## 📑 Table of Contents
-1. [Project Overview & System Architecture](#sec-1)
-2. [Data Engineering & Preprocessing Pipeline](#sec-2)
-3. [Deep-Dive Exploratory Data Analysis (EDA)](#sec-3)
-4. [Statistical Hypothesis Testing (One-way ANOVA)](#sec-4)
-5. [Predictive Machine Learning Modeling](#sec-5)
-6. [Interactive Gradio Web Service Interface](#sec-6)
-7. [Data-Driven Business Strategies](#sec-7)
-8. [Engineering Retrospective & Troubleshooting](#sec-8)
+1. [Project Overview & System Architecture](#1-project-overview--system-architecture)
+2. [Data Engineering & Preprocessing Pipeline](#2-data-engineering--preprocessing-pipeline)
+3. [Deep-Dive Exploratory Data Analysis (EDA)](#3-deep-dive-exploratory-data-analysis-eda)
+4. [Statistical Hypothesis Testing (One-way ANOVA)](#4-statistical-hypothesis-testing-one-way-anova)
+5. [Predictive Machine Learning Modeling](#5-predictive-machine-learning-modeling)
+6. [Interactive Gradio Web Service Interface](#6-interactive-gradio-web-service-interface)
+7. [Data-Driven Business Strategies](#7-data-driven-business-strategies)
+8. [Engineering Retrospective & Troubleshooting](#8-engineering-retrospective--troubleshooting)
 
 ---
 
-<a id="sec-1"></a>
 ## 1. Project Overview & System Architecture
 
 ### 1.1 비즈니스 문제 정의 (Business Problem)
-이커머스 뷰티 플랫폼에서 **"고가 프리미엄 제품일수록 고객 만족도(평점)가 유의미하게 더 높은가?"**는 MD 소싱과 프로모션 예산 배분의 핵심 의사결정 기준입니다.
-* **가설 1**: 제품 가격이 높을수록 브랜드 충성도와 원료 품질에 의해 고객 평점(Rating)이 선형적으로 비례하여 상승할 것이다.
-* **가설 2**: 플랫폼 내 등록 상품 수(SKU)가 많은 메이저 카테고리가 실제 고객의 바이럴 반응(Love/위시리스트 수)에서도 동일하게 높은 점유율을 차지할 것이다.
+뷰티 이커머스 플랫폼에서 **"고가 프리미엄 제품일수록 고객 만족도(평점)가 비례하여 상승하는가?"**는 신규 브랜드 소싱, 가격 책정(Pricing), 마케팅 프로모션 예산 배분의 핵심 기준입니다.
+* **분석 배경**: 무조건적인 고가 럭셔리 라인업 확장이 실제 고객 리텐션과 높은 평점으로 직결되는지 데이터 기반의 실증적 검증이 요구됨.
+* **핵심 가설 1 (만족도 가설)**: 판매 가격이 높을수록 브랜드 신뢰도와 원료 품질 효과로 인해 고객 만족도(Rating)가 선형적으로 유의미하게 높을 것이다.
+* **핵심 가설 2 (바이럴 가설)**: 플랫폼 내 등록 상품 수(SKU)가 많은 대중적 카테고리가 고객의 바이럴 반응(Love/위시리스트 수)에서도 동일하게 높은 점유율을 가질 것이다.
 
-### 1.2 엔드투엔드 아키텍처 다이어그램 (Pipeline)
+### 1.2 엔드투엔드 파이프라인 아키텍처 (Pipeline Flowchart)
 
 ```mermaid
 flowchart TD
-    A[Sephora Raw Dataset: 9,168건] --> B[Data Cleansing: 0점 노이즈 398건 제거]
-    B --> C[Feature Engineering: 4-Tier 가격 구간화]
-    C --> D[EDA: 카테고리별 상관관계 및 바이럴 분석]
+    A[Sephora Raw Dataset: 9,168건] --> B[Data Cleansing: 0.0점 노이즈 398건 식별 및 제거]
+    B --> C[Feature Engineering: 4-Tier 비즈니스 가격 구간화]
+    C --> D[EDA: 카테고리별 상관관계 및 바이럴 비대칭성 분석]
     C --> E[Statistical Testing: One-way ANOVA F=42.95, p<0.001]
     C --> F[Machine Learning: 하트수 및 평점 예측 Random Forest/XGBoost]
-    E & F --> G[Interactive Web App: Gradio 기반 실시간 MD 시뮬레이터]
-    G --> H[Actionable Business Strategy: 소싱 Sweet Spot 도출]
+    E & F --> G[Interactive Web App: Gradio 기반 실시간 MD 시뮬레이터 프로토타입]
+    G --> H[Actionable Business Strategy: $26~$50 소싱 Sweet Spot 도출]
+
