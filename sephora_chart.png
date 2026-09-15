@@ -1,0 +1,30 @@
+import matplotlib.pyplot as plt
+from google.colab import files
+import seaborn as sns
+
+# 핵심 통계 분석 차트 생성
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+sns.boxplot(
+    data=df_clean,
+    x='price_tier',
+    y='rating',
+    ax=axes[0],
+    palette='Set2',
+    order=['Budget', 'Mid-tier', 'Premium', 'Luxury'],
+)
+axes[0].set_title('Price Tier vs Rating (ANOVA F=42.95)')
+
+sns.scatterplot(
+    data=df_clean,
+    x='number_of_reviews',
+    y='love',
+    ax=axes[1],
+    alpha=0.5,
+    color='crimson',
+)
+axes[1].set_title('Reviews vs Love (Correlation r>0.65)')
+plt.tight_layout()
+
+# 이미지 파일로 컴퓨터에 자동 다운로드
+plt.savefig('sephora_chart.png', dpi=300)
+files.download('sephora_chart.png')
