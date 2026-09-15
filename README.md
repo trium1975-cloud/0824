@@ -139,3 +139,23 @@ Olist 이커머스 AI 표준 파이프라인을 벤치마킹하여 4대 예측 �
 * **Issue 3: Gradio 터널링 프록시 대기 시간 지연 (`share=True` 프리징)**
   * **원인**: 외부 네트워크 환경에 따라 원격 터널링 포트(`frpc`) 바이너리 다운로드가 지연되는 병목 발생
   * **해결**: 개발 및 포트폴리오 캡처 단계에서는 인라인 렌더링(`demo.launch(inline=True)`)으로 즉시 서빙되도록 분기 처리
+
+# 💄 Sephora AI Merchandising Solution
+> **8,770건의 이커머스 실데이터 기반 4대 AI 엔진 구축 및 Gradio 인터랙티브 웹 서빙 프로젝트**
+
+[![Google Colab](https://img.shields.io/badge/Launch-Google_Colab-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white)](./sephora_data_analysis.ipynb)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML_Modeling-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![Gradio](https://img.shields.io/badge/Gradio-Web_Service-FF7C00?style=for-the-badge&logo=gradio&logoColor=white)](https://gradio.app/)
+
+---
+
+### 📌 Project Highlights
+* **Data Engineering**: 입점 초기 미평가 결측치(0.0점 노이즈 398건) 제거 및 8,770건 정제
+* **Statistical Rigor**: 일원분산분석(One-way ANOVA)을 통한 가격대별 평점 유의차 검증 ($F=42.95, p<0.001$)
+* **Full-Stack AI Engine**: Olist 표준 파이프라인(매출 예측 · 이탈 진단 · 감성 분석 · 벤치마크 추천)을 세포라 도메인에 100% 이식
+* **Production Serving**: 비전문가(MD/마케터)도 즉시 시뮬레이션 가능한 4단 탭 Gradio 대시보드 배포
+
+---
+
+### 🖥️ Gradio Interactive Dashboard Architecture
